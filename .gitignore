@@ -1,1 +1,20 @@
 calculator_values.json
+# Ignore virtual environment
+venv/
+
+# Ignore Python cache files
+__pycache__/
+*.py[cod]
+
+# Ignore database file
+database.db
+
+# Ignore environment files
+.env
+
+# Ignore IDE-specific files
+.vscode/
+.idea/
+
+# Ignore macOS system files
+.DS_Store

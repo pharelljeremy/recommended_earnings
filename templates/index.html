@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Income Calculator</title>
+</head>
+<body>
+    <h1>Income Calculator</h1>
+
+    <h2>Run Calculators</h2>
+    <div>
+        <a href="{{ url_for('run_calculator_route', category='Leisure') }}"><button>Leisure Calculator</button></a>
+        <a href="{{ url_for('run_calculator_route', category='Housing') }}"><button>Housing Calculator</button></a>
+        <a href="{{ url_for('run_calculator_route', category='Car') }}"><button>Car Calculator</button></a>
+        <a href="{{ url_for('run_calculator_route', category='Savings') }}"><button>Savings Calculator</button></a>
+        <a href="{{ url_for('run_calculator_route', category='Food') }}"><button>Food Calculator</button></a>
+    </div>
+
+    <h2>Current Recommendations</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Category</th>
+                <th>Amount</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for rec in recommendations %}
+            <tr>
+                <td>{{ rec['category'] }}</td>
+                <td>${{ rec['amount'] }}</td>
+                <td>
+                    <a href="{{ url_for('delete_recommendation', id=rec['id']) }}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h2>Totals</h2>
+    <p><strong>Total Monthly:</strong> ${{ monthly_total }}</p>
+    <p><strong>Total Yearly:</strong> ${{ yearly_total }}</p>
+
+    <div>
+        <a href="{{ url_for('clear_recommendations') }}"><button>Clear All Values</button></a>
+    </div>
+</body>
+</html>
