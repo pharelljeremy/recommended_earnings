@@ -1,4 +1,4 @@
-#londond burning londons burning 
+#hell yeah
 
 import tkinter as tk
 from tkinter import ttk, messagebox
